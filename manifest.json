@@ -1,0 +1,17 @@
+{
+  "id": "quicknote",
+  "name": "Quicknote",
+  "version": "1.0.0",
+  "description": "Instant floating scratchpad for capturing thoughts, web snippets, and ideas without leaving your current note.",
+  "author": "Yuliet Li",
+  "minAppVersion": "0.4.0",
+  "category": "Productivity",
+  "tags": [
+    "quicknote",
+    "scratchpad",
+    "modal",
+    "capture"
+  ],
+  "icon": "sticky-note-02",
+  "repoUrl": "https://github.com/yvliet/quicknote"
+}
