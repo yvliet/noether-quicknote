@@ -1,9 +1,10 @@
 {
-  "id": "quicknote",
+  "id": "noether-quicknote",
   "name": "Quicknote",
   "version": "1.0.0",
   "description": "Instant floating scratchpad for capturing thoughts, web snippets, and ideas without leaving your current note.",
   "author": "Yuliet Li",
+  "authorUrl": "https://github.com/yvliet",
   "minAppVersion": "0.4.0",
   "category": "Productivity",
   "tags": [
@@ -12,6 +13,14 @@
     "modal",
     "capture"
   ],
-  "icon": "sticky-note-02",
-  "repoUrl": "https://github.com/yvliet/quicknote"
+  "icon": {
+    "name": "sticky-note-02",
+    "type": "gradient",
+    "gradientColors": [
+      "#0284c7",
+      "#0369a1"
+    ],
+    "gradientDirection": "135deg"
+  },
+  "repoUrl": "https://github.com/yvliet/noether-quicknote"
 }
