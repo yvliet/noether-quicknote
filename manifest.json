@@ -1,7 +1,7 @@
 {
   "id": "noether-quicknote",
   "name": "Quicknote",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Instant floating scratchpad for capturing thoughts, web snippets, and ideas without leaving your current note.",
   "author": "Yuliet Li",
   "authorUrl": "https://github.com/yvliet",

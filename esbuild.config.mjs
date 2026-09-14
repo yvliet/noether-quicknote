@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isWatch = process.argv.includes('--watch');
 const possibleSrcDirs = [
+  'c:/Users/sultan haikal/Downloads/noether/src',
   path.resolve(__dirname, '../../src'),
   path.resolve(__dirname, '../Flint/src'),
   path.resolve(__dirname, '../src'),
@@ -43,6 +44,12 @@ const buildOptions = {
     '@tiptap/extension-highlight',
     '@tiptap/extension-link',
     '@tiptap/extension-typography',
+    'noether',
+    'noether/sdk',
+    '@noether',
+    '@noether/core',
+    '@noether/sdk',
+    'noether-sdk',
     'flint',
     'flint/sdk',
     '@flint',

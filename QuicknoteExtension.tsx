@@ -109,6 +109,105 @@ export class QuicknoteExtension extends Extension {
       }
     });
 
+    // 5a. Register Omnibox Search Provider (Ctrl+P / Ctrl+K with 'qn:')
+    if (typeof (this as any).registerSearchProvider === 'function') {
+      (this as any).registerSearchProvider({
+        id: 'quicknote-search',
+        prefix: 'qn:',
+        placeholder: 'Type quicknote thought to capture or find...',
+        search: async (query: string) => {
+          const q = query.trim();
+          if (!q) {
+            return [
+              {
+                id: 'qn:open-modal',
+                title: 'Open Quicknote Sticky HUD',
+                description: 'Toggle quick capture overlay (Ctrl+Shift+Space)',
+                category: 'Quicknote',
+                badge: 'HUD',
+                onSelect: () => {
+                  useQuicknoteSettings.getState().toggleQuicknote();
+                },
+              },
+            ];
+          }
+
+          return [
+            {
+              id: `qn:capture-${Date.now()}`,
+              title: `Capture Quicknote: "${q}"`,
+              description: 'Save new quick note immediately to configured folder',
+              category: 'Quicknote',
+              badge: 'Capture',
+              onSelect: async () => {
+                const folderName = (useQuicknoteSettings.getState().quicknoteFolder || 'Quicknotes').trim();
+                const allDocs = this.app.hearth.documents;
+                let targetFolderId: string | null = null;
+                if (folderName) {
+                  const existingFolder = allDocs.find(
+                    (d: any) => d.is_folder && d.title.toLowerCase() === folderName.toLowerCase()
+                  );
+                  if (existingFolder) {
+                    targetFolderId = existingFolder.id;
+                  }
+                }
+                const noteTitle = q.length > 40 ? q.slice(0, 40) + '...' : q;
+                const newDoc = await this.app.hearth.createNewNote(noteTitle, targetFolderId);
+                if (newDoc) {
+                  const docContent = {
+                    type: 'doc',
+                    content: [
+                      { type: 'heading', attrs: { level: 1 }, content: [{ type: 'text', text: noteTitle }] },
+                      { type: 'paragraph', content: [{ type: 'text', text: q }] },
+                    ],
+                  };
+                  await this.app.hearth.saveDocument(newDoc.id, JSON.stringify(docContent), noteTitle);
+                  this.app.workspace.showToast(`Saved quicknote: "${noteTitle}"`, 'success');
+                }
+              },
+            },
+          ];
+        },
+      });
+    }
+
+    // 5b. Register Tab Context Menu Action
+    if (typeof (this as any).registerTabContextMenuAction === 'function') {
+      (this as any).registerTabContextMenuAction({
+        id: 'quicknote:open-scratch',
+        title: 'Open Quicknote Scratchpad',
+        order: 60,
+        action: () => {
+          useQuicknoteSettings.getState().toggleQuicknote();
+        },
+      });
+    }
+
+    // 5c. Register Custom Canvas Card Renderer via EventBus
+    this.app.events.emit('canvas:register-card-renderer', {
+      id: 'quicknote-card',
+      match: (doc: any) => doc?.title?.toLowerCase?.().includes('quicknote') || false,
+      render: (props: any) => {
+        return React.createElement(
+          'div',
+          {
+            className: 'w-full h-full p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg text-xs font-sans select-none overflow-hidden flex flex-col',
+          },
+          React.createElement(
+            'div',
+            { className: 'font-semibold text-amber-300 mb-1 flex items-center gap-1.5' },
+            React.createElement('span', { className: 'w-2 h-2 rounded-full bg-amber-400' }),
+            props.doc?.title || 'Quicknote'
+          ),
+          React.createElement(
+            'div',
+            { className: 'text-[var(--noether-text-secondary,#bbb)] line-clamp-4' },
+            typeof props.doc?.content_json === 'string' ? props.doc.content_json.slice(0, 150) : ''
+          )
+        );
+      },
+    });
+
     // 6. Register MCP Tools
     // ── Tool: capture ──
     this.registerTool({
