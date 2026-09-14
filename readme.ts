@@ -1,6 +1,6 @@
 export const quicknoteReadme = `# Quicknote
 
-Skeuomorphic, distraction-free **Sticky Note** quick-capture extension for Flint.
+Skeuomorphic, distraction-free **Sticky Note** quick-capture extension for Noether.
 
 ---
 

@@ -8,7 +8,7 @@ const isWatch = process.argv.includes('--watch');
 const possibleSrcDirs = [
   'c:/Users/sultan haikal/Downloads/noether/src',
   path.resolve(__dirname, '../../src'),
-  path.resolve(__dirname, '../Flint/src'),
+  
   path.resolve(__dirname, '../src'),
 ];
 const srcDir = possibleSrcDirs.find((d) => fs.existsSync(d)) || path.resolve(__dirname, '../../src');
@@ -50,13 +50,13 @@ const buildOptions = {
     '@noether/core',
     '@noether/sdk',
     'noether-sdk',
-    'flint',
-    'flint/sdk',
-    '@flint',
-    '@flint/core',
-    '@flint/api',
-    '@flint/sdk',
-    'flint-sdk'
+    
+    
+    
+    
+    
+    
+    
   ],
   alias: {
     '@': srcDir,

@@ -4,7 +4,7 @@
  * Built-in community extension providing a physical sticky note HUD overlay for
  * rapid thought, task, and note capture.
  *
- * Exclusively uses the Flint SDK, IoC Registries, and EventBus.
+ * Exclusively uses the Noether SDK, IoC Registries, and EventBus.
  *
  * @since 0.2.0
  */
@@ -12,7 +12,7 @@
 import React from 'react';
 import { Extension } from '@/core/extensions/Extension';
 import { ExtensionManifest, McpToolResult } from '@/core/extensions/types';
-import { FlintApp } from '@/core/app/FlintApp';
+import { NoetherApp } from '@/core/app/NoetherApp';
 import { StickyNote02Icon } from '@/components/common/Icons';
 import { createDocument } from '@/lib/db/documents';
 import { useQuicknoteSettings } from './quicknoteSettings';
@@ -42,7 +42,7 @@ export class QuicknoteExtension extends Extension {
   private unregisterGlobalShortcutListener: (() => void) | null = null;
   private unsubscribeSettings: (() => void) | null = null;
 
-  constructor(app: FlintApp, manifest: ExtensionManifest = QUICKNOTE_MANIFEST) {
+  constructor(app: NoetherApp, manifest: ExtensionManifest = QUICKNOTE_MANIFEST) {
     super(app, manifest);
   }
 

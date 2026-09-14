@@ -9276,7 +9276,7 @@ var init_EventBus = __esm({
 });
 
 // ../../../../Downloads/noether/src/core/app/AppContext.tsx
-var import_react4, import_jsx_runtime7, AppContext, useNoetherApp, useFlintApp, useDocMenuActions, useExtensionList, useBreadcrumbProviders, useBreadcrumbDecorators, useDocumentTitleDecorators, usePortalSlots, useEditorPlugins, useViewportActions, useTabContextMenuActions, useOmniboxProviders;
+var import_react4, import_jsx_runtime7, AppContext, useNoetherApp, useDocMenuActions, useExtensionList, useBreadcrumbProviders, useBreadcrumbDecorators, useDocumentTitleDecorators, usePortalSlots, useEditorPlugins, useViewportActions, useTabContextMenuActions, useOmniboxProviders;
 var init_AppContext = __esm({
   "../../../../Downloads/noether/src/core/app/AppContext.tsx"() {
     "use strict";
@@ -9289,7 +9289,6 @@ var init_AppContext = __esm({
       if (ctx) return ctx;
       return appInstance;
     };
-    useFlintApp = useNoetherApp;
     useDocMenuActions = () => {
       const app = useNoetherApp();
       return (0, import_react4.useSyncExternalStore)(
@@ -51294,7 +51293,7 @@ var init_ExtensionAppIcon = __esm({
             generateCompanionGradientColor(resolvedConfig.backgroundColor)
           ];
         } else {
-          const normalizedKey = (glyphName || name || "").toLowerCase().trim().replace(/^noether-/, "").replace(/^flint-/, "");
+          const normalizedKey = (glyphName || name || "").toLowerCase().trim().replace(/^noether-/, "");
           gradientStops = KNOWN_CORE_GRADIENTS[normalizedKey] || hashStringToGradient(normalizedKey || "extension");
         }
         backgroundStyle.backgroundImage = `linear-gradient(${dir}, ${gradientStops.join(", ")})`;
@@ -51352,7 +51351,7 @@ var init_ExtensionAppIcon = __esm({
             }
           );
         }
-        const normalizedKey = glyphName.toLowerCase().trim().replace(/^noether-/, "").replace(/^flint-/, "");
+        const normalizedKey = glyphName.toLowerCase().trim().replace(/^noether-/, "");
         const StaticComp = FAST_STATIC_ICON_MAP[normalizedKey] || FAST_STATIC_ICON_MAP[glyphName];
         if (StaticComp) {
           return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(
@@ -63374,7 +63373,7 @@ var init_quicknoteSettings = __esm({
           restoreDefaults: () => set({ ...DEFAULT_QUICKNOTE_SETTINGS })
         }),
         {
-          name: "flint_quicknote_settings",
+          name: "noether_quicknote_settings",
           partialize: (state) => ({
             quicknoteFolder: state.quicknoteFolder,
             quicknoteShortcut: state.quicknoteShortcut,
@@ -63452,7 +63451,7 @@ var init_QuicknoteModal = __esm({
     init_documentStore();
     import_jsx_runtime25 = require("react/jsx-runtime");
     QuicknoteModal = import_react27.default.memo(() => {
-      const app = useFlintApp();
+      const app = useNoetherApp();
       const isModalOpen = useQuicknoteSettings((s) => s.isModalOpen);
       const isMinimized = useQuicknoteSettings((s) => s.isMinimized);
       const toggleMinimize = useQuicknoteSettings((s) => s.toggleMinimize);
@@ -64134,7 +64133,7 @@ var init_QuicknoteSettingsTab = __esm({
                 restoreDefaults();
                 showToast("Restored Quicknote defaults", "info");
               },
-              className: "flint-btn text-xs py-1 px-2.5 flex items-center gap-1.5",
+              className: "noether-btn text-xs py-1 px-2.5 flex items-center gap-1.5",
               children: [
                 /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(RotateCcwIcon, { size: 12 }),
                 /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", { children: "Restore defaults" })
@@ -64179,7 +64178,7 @@ var init_QuicknoteSettingsTab = __esm({
                       }
                     });
                   },
-                  className: "flint-btn text-xs py-1 px-2.5 flex items-center gap-2 group",
+                  className: "noether-btn text-xs py-1 px-2.5 flex items-center gap-2 group",
                   title: "Click to select folder in File Explorer",
                   children: [
                     /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Folder01Icon, { size: 13, className: "text-[#888] group-hover:text-white" }),
@@ -64211,7 +64210,7 @@ var init_QuicknoteSettingsTab = __esm({
                     backgroundColor: item.bg,
                     borderColor: isSelected ? "#ffffff" : "rgba(0,0,0,0.2)"
                   },
-                  className: `w-6 h-6 rounded-full border-2 transition-transform cursor-pointer flex items-center justify-center shadow-sm ${isSelected ? "scale-110 shadow-md ring-2 ring-[var(--flint-accent)]" : "hover:scale-105"}`,
+                  className: `w-6 h-6 rounded-full border-2 transition-transform cursor-pointer flex items-center justify-center shadow-sm ${isSelected ? "scale-110 shadow-md ring-2 ring-[var(--noether-accent)]" : "hover:scale-105"}`,
                   children: isSelected && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(CheckIcon, { size: 12, className: "text-neutral-900" })
                 },
                 key
@@ -64256,7 +64255,7 @@ init_quicknoteSettings();
 // readme.ts
 var quicknoteReadme = `# Quicknote
 
-Skeuomorphic, distraction-free **Sticky Note** quick-capture extension for Flint.
+Skeuomorphic, distraction-free **Sticky Note** quick-capture extension for Noether.
 
 ---
 

@@ -2,7 +2,7 @@
  * @module quicknoteSettings
  * @description
  * Settings and runtime UI state store for the Quicknote core extension.
- * Persisted in localStorage under `flint_quicknote_settings`.
+ * Persisted in localStorage under `noether_quicknote_settings`.
  *
  * @since 0.2.0
  */
@@ -151,7 +151,7 @@ export const useQuicknoteSettings = create<QuicknoteSettingsState>()(
       restoreDefaults: () => set({ ...DEFAULT_QUICKNOTE_SETTINGS }),
     }),
     {
-      name: 'flint_quicknote_settings',
+      name: 'noether_quicknote_settings',
       partialize: (state) => ({
         quicknoteFolder: state.quicknoteFolder,
         quicknoteShortcut: state.quicknoteShortcut,

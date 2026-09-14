@@ -46,7 +46,7 @@ export const QuicknoteSettingsTab: React.FC = React.memo(() => {
               restoreDefaults();
               showToast('Restored Quicknote defaults', 'info');
             }}
-            className="flint-btn text-xs py-1 px-2.5 flex items-center gap-1.5"
+            className="noether-btn text-xs py-1 px-2.5 flex items-center gap-1.5"
           >
             <RotateCcwIcon size={12} />
             <span>Restore defaults</span>
@@ -95,7 +95,7 @@ export const QuicknoteSettingsTab: React.FC = React.memo(() => {
                   },
                 });
               }}
-              className="flint-btn text-xs py-1 px-2.5 flex items-center gap-2 group"
+              className="noether-btn text-xs py-1 px-2.5 flex items-center gap-2 group"
               title="Click to select folder in File Explorer"
             >
               <Folder01Icon size={13} className="text-[#888] group-hover:text-white" />
@@ -135,7 +135,7 @@ export const QuicknoteSettingsTab: React.FC = React.memo(() => {
                     borderColor: isSelected ? '#ffffff' : 'rgba(0,0,0,0.2)',
                   }}
                   className={`w-6 h-6 rounded-full border-2 transition-transform cursor-pointer flex items-center justify-center shadow-sm ${
-                    isSelected ? 'scale-110 shadow-md ring-2 ring-[var(--flint-accent)]' : 'hover:scale-105'
+                    isSelected ? 'scale-110 shadow-md ring-2 ring-[var(--noether-accent)]' : 'hover:scale-105'
                   }`}
                 >
                   {isSelected && <CheckIcon size={12} className="text-neutral-900" />}

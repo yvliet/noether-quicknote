@@ -30,7 +30,7 @@ import {
   STICKY_THEMES,
   StickyPaperColor,
 } from './quicknoteSettings';
-import { useFlintApp } from '@/core/app/AppContext';
+import { useNoetherApp } from '@/core/app/AppContext';
 import { getAllDocuments, createDocument, saveDocumentAndSynchronize } from '@/lib/db/documents';
 import { useDocumentStore } from '@/store/documentStore';
 
@@ -81,7 +81,7 @@ async function ensureFolder(folderPath: string): Promise<string | null> {
 }
 
 export const QuicknoteModal: React.FC = React.memo(() => {
-  const app = useFlintApp();
+  const app = useNoetherApp();
   const isModalOpen = useQuicknoteSettings((s) => s.isModalOpen);
   const isMinimized = useQuicknoteSettings((s) => s.isMinimized);
   const toggleMinimize = useQuicknoteSettings((s) => s.toggleMinimize);
