@@ -13,6 +13,15 @@ const possibleSrcDirs = [
 ];
 const srcDir = possibleSrcDirs.find((d) => fs.existsSync(d)) || path.resolve(__dirname, '../../src');
 
+const ignoreUrlQueriesPlugin = {
+  name: 'ignore-url-queries',
+  setup(build) {
+    build.onResolve({ filter: /\?url$/ }, (args) => {
+      return { path: args.path, external: true };
+    });
+  },
+};
+
 const buildOptions = {
   entryPoints: [path.join(__dirname, 'QuicknoteExtension.tsx')],
   bundle: true,
@@ -21,6 +30,7 @@ const buildOptions = {
   platform: 'browser',
   target: 'es2022',
   jsx: 'automatic',
+  plugins: [ignoreUrlQueriesPlugin],
   external: [
     'react',
     'react/jsx-runtime',
@@ -50,13 +60,6 @@ const buildOptions = {
     '@noether/core',
     '@noether/sdk',
     'noether-sdk',
-    
-    
-    
-    
-    
-    
-    
   ],
   alias: {
     '@': srcDir,

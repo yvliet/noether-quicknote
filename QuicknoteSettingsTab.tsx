@@ -73,7 +73,7 @@ export const QuicknoteSettingsTab: React.FC = React.memo(() => {
                   showToast('Restored Quicknote folder to default (Quicknotes)', 'info');
                 }}
                 title="Restore default folder (Quicknotes)"
-                className="p-1 rounded-md text-[#777] hover:text-white hover:bg-[#282828] transition-colors cursor-pointer shrink-0 flex items-center justify-center"
+                className="p-1 rounded-md text-[#777] hover:text-white hover:bg-[#282828] shrink-0 flex items-center justify-center"
               >
                 <RotateCcwIcon size={13} />
               </button>
@@ -134,8 +134,8 @@ export const QuicknoteSettingsTab: React.FC = React.memo(() => {
                     backgroundColor: item.bg,
                     borderColor: isSelected ? '#ffffff' : 'rgba(0,0,0,0.2)',
                   }}
-                  className={`w-6 h-6 rounded-full border-2 transition-transform cursor-pointer flex items-center justify-center shadow-sm ${
-                    isSelected ? 'scale-110 shadow-md ring-2 ring-[var(--noether-accent)]' : 'hover:scale-105'
+                  className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shadow-sm ${
+                    isSelected ? 'shadow-md ring-2 ring-[var(--noether-accent)]' : ''
                   }`}
                 >
                   {isSelected && <CheckIcon size={12} className="text-neutral-900" />}

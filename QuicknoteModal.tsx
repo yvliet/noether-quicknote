@@ -433,7 +433,7 @@ export const QuicknoteModal: React.FC = React.memo(() => {
               onDoubleClick={(e) => e.stopPropagation()}
               title="Save note (Ctrl+Enter)"
               style={{ color: theme.text }}
-              className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15 cursor-pointer"
+              className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15"
             >
               <PlusSignIcon size={18} />
             </button>
@@ -454,7 +454,7 @@ export const QuicknoteModal: React.FC = React.memo(() => {
                 onDoubleClick={(e) => e.stopPropagation()}
                 title={`Saved to "${quicknoteFolder}". Click to change folder.`}
                 style={{ color: theme.text }}
-                className="text-[11px] font-medium tracking-tight flex items-center gap-1 cursor-pointer px-2 py-0.5 rounded hover:bg-black/10"
+                className="text-[11px] font-medium tracking-tight flex items-center gap-1 px-2 py-0.5 rounded hover:bg-black/10"
               >
                 <Folder01Icon size={12} />
                 <span className="max-w-[140px] truncate">{quicknoteFolder || 'Quicknotes'}</span>
@@ -502,7 +502,7 @@ export const QuicknoteModal: React.FC = React.memo(() => {
                           setIsFolderDropdownOpen(false);
                           app.workspace.showToast(`Folder set to "${f}"`, 'success');
                         }}
-                        className={`flex items-center gap-1.5 px-2 py-1 text-[11px] rounded text-left cursor-pointer ${
+                        className={`flex items-center gap-1.5 px-2 py-1 text-[11px] rounded text-left ${
                           quicknoteFolder === f ? 'bg-black/15 font-bold' : 'hover:bg-black/10'
                         }`}
                       >
@@ -520,7 +520,7 @@ export const QuicknoteModal: React.FC = React.memo(() => {
                           setIsFolderDropdownOpen(false);
                           app.workspace.showToast(`Created folder "${folderSearch.trim()}"`, 'success');
                         }}
-                        className="flex items-center gap-1 px-2 py-1 text-[11px] text-left hover:bg-black/10 rounded cursor-pointer text-emerald-600 font-semibold"
+                        className="flex items-center gap-1 px-2 py-1 text-[11px] text-left hover:bg-black/10 rounded text-emerald-600 font-semibold"
                       >
                         <PlusSignIcon size={11} />
                         <span className="truncate">Create "{folderSearch.trim()}"</span>
@@ -550,7 +550,7 @@ export const QuicknoteModal: React.FC = React.memo(() => {
               onDoubleClick={(e) => e.stopPropagation()}
               title="Menu / Color palette"
               style={{ color: theme.text }}
-              className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15 cursor-pointer"
+              className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15"
             >
               <MoreVerticalIcon size={17} />
             </button>
@@ -566,7 +566,7 @@ export const QuicknoteModal: React.FC = React.memo(() => {
               onDoubleClick={(e) => e.stopPropagation()}
               title={isMinimized ? 'Expand note' : 'Minimize to header'}
               style={{ color: theme.text }}
-              className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15 cursor-pointer"
+              className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15"
             >
               {isMinimized ? <ArrowExpandIcon size={14} /> : <MinusSignIcon size={15} />}
             </button>
@@ -582,7 +582,7 @@ export const QuicknoteModal: React.FC = React.memo(() => {
               onDoubleClick={(e) => e.stopPropagation()}
               title="Close note (Esc)"
               style={{ color: theme.text }}
-              className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15 cursor-pointer"
+              className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15"
             >
               <Cancel01Icon size={15} />
             </button>
@@ -622,7 +622,7 @@ export const QuicknoteModal: React.FC = React.memo(() => {
                       backgroundColor: item.bg,
                       borderColor: isSelected ? '#000000' : 'rgba(0,0,0,0.15)',
                     }}
-                    className={`w-6 h-6 rounded-full border-2 cursor-pointer flex items-center justify-center ${
+                    className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
                       isSelected ? 'shadow-sm' : ''
                     }`}
                   >
@@ -681,7 +681,7 @@ export const QuicknoteModal: React.FC = React.memo(() => {
                   color: theme.text,
                   backgroundColor: editor?.isActive('bold') ? 'rgba(0,0,0,0.14)' : 'transparent',
                 }}
-                className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15 cursor-pointer"
+                className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15"
               >
                 <TextBoldIcon size={15} />
               </button>
@@ -695,7 +695,7 @@ export const QuicknoteModal: React.FC = React.memo(() => {
                   color: theme.text,
                   backgroundColor: editor?.isActive('italic') ? 'rgba(0,0,0,0.14)' : 'transparent',
                 }}
-                className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15 cursor-pointer"
+                className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15"
               >
                 <TextItalicIcon size={15} />
               </button>
@@ -709,7 +709,7 @@ export const QuicknoteModal: React.FC = React.memo(() => {
                   color: theme.text,
                   backgroundColor: editor?.isActive('highlight') ? 'rgba(0,0,0,0.14)' : 'transparent',
                 }}
-                className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15 cursor-pointer"
+                className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15"
               >
                 <HighlighterIcon size={15} />
               </button>
@@ -723,7 +723,7 @@ export const QuicknoteModal: React.FC = React.memo(() => {
                   color: theme.text,
                   backgroundColor: editor?.isActive('strike') ? 'rgba(0,0,0,0.14)' : 'transparent',
                 }}
-                className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15 cursor-pointer"
+                className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15"
               >
                 <TextStrikethroughIcon size={15} />
               </button>
@@ -737,7 +737,7 @@ export const QuicknoteModal: React.FC = React.memo(() => {
                   color: theme.text,
                   backgroundColor: editor?.isActive('bulletList') ? 'rgba(0,0,0,0.14)' : 'transparent',
                 }}
-                className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15 cursor-pointer"
+                className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15"
               >
                 <LeftToRightListBulletIcon size={15} />
               </button>
@@ -751,7 +751,7 @@ export const QuicknoteModal: React.FC = React.memo(() => {
                   color: theme.text,
                   backgroundColor: editor?.isActive('taskList') ? 'rgba(0,0,0,0.14)' : 'transparent',
                 }}
-                className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15 cursor-pointer"
+                className="w-7 h-7 flex items-center justify-center rounded hover:bg-black/10 active:bg-black/15"
               >
                 <CheckmarkSquare02Icon size={15} />
               </button>
